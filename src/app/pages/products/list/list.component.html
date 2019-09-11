@@ -1,0 +1,53 @@
+<div class="uk-container">
+  <nav class="uk-navbar-container navbar-Title" uk-navbar>
+    <div class="uk-navbar-center">
+      <ul class="uk-navbar-nav">
+        <li class="uk-active">Cesta mágica</li>
+      </ul>
+    </div>
+    <div class="uk-navbar-right">
+      <ul class="uk-navbar-nav">
+        <li class="uk-active btn-effect">
+          <a routerLink="/product">
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: cart"></span>
+            Adicionar</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<br />
+<div class="uk-container">
+  <div class="uk-overflow-auto">
+    <app-loading [data]="products"></app-loading>
+    <table *ngIf="(products | async )?.length > 0"
+      class="uk-table uk-table-striped uk-table-middle uk-table-responsive">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-row" *ngFor="let product of products | async">
+          <td>{{ product.id }}</td>
+          <td>{{ product.title }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.amount | currency: 'BRL' }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>
+            <button class="uk-button uk-button-default" (click)="update(product)">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: pencil"></span>
+              Editar</button>
+            <button class="uk-button uk-button-default" (click)="delete(product)">
+              <span class="uk-icon uk-margin-small-right" uk-icon="icon: trash"></span>Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

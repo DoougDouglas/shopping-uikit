@@ -1,0 +1,7 @@
+<div class="uk-text-center">
+  <br><br>
+  <div uk-spinner *ngIf="!(data | async)"></div>
+  <p *ngIf="(data | async)?.length == 0">
+    <em>Nenhum item encontrado :( </em>
+  </p>
+</div>

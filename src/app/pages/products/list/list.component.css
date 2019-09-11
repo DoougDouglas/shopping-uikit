@@ -1,0 +1,17 @@
+.navbar-Title {
+  color: white;
+  background-color: #95FF6D;
+  font-weight: 500;
+}
+
+.navbar-Title ul li {
+  color: black;
+  cursor: default;
+}
+
+
+.table-row:hover {
+  background-color: #cdffba;
+  font-weight: bold;
+  cursor: default;
+}
